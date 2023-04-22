@@ -1,0 +1,41 @@
+﻿<Window x:Class="Pairs_Bajan_Ramona.Game"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pairs_Bajan_Ramona"
+        mc:Ignorable="d"
+        Title="Game" Height="555" Width="955">
+    <Window.DataContext>
+        <local:GameLogic x:Name="boardDataContext"/>
+    </Window.DataContext>
+
+    <Grid x:Name="grid">
+        <ItemsControl ItemsSource="{Binding sUser.configuratie}" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ItemsControl ItemsSource="{Binding}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button x:Name="tileButton" Width="70" Height="70" Margin="10" Click="FlipTile_Clicked">
+                                    <Image x:Name="imageControl" Source="{Binding ImageInBinding}" Stretch="Uniform"/>
+                                </Button>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Image x:Name="pic" HorizontalAlignment="Left" Height="100" Margin="805,143,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image HorizontalAlignment="Left" Height="128" Margin="800,123,0,0" VerticalAlignment="Top" Width="121"/>
+        <TextBlock x:Name="usernameText" HorizontalAlignment="Left" Margin="823,302,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Calibri" FontSize="22" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="813,263,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" FontFamily="Calibri" FontSize="22"/>
+        <TextBlock x:Name="levelBox" HorizontalAlignment="Left" Margin="815,354,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Calibri" FontSize="22"/>
+        <TextBlock x:Name="timerBox" HorizontalAlignment="Left" Margin="458,478,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontSize="22"/>
+    </Grid>
+</Window>
